@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fluxml xmlns="http://www.13cflux.net/fluxml">
+<info>
+	<name>Ecoli_central carbon_13C_2H</name>
+	<version>1.0</version>
+	<comment/>
+</info>
+<reactionnetwork>
+	<metabolitepools>
+		<pool C="1" H="0" id="CO2_IN"/>
+		<pool C="0" H="1" id="H_IN"/>
+		<pool C="0" H="1" id="NADPH_IN"/>
+		<pool C="0" H="1" id="NADH_IN"/>
+		<pool C="3" H="3" id="PYR_IN"/>
+		<pool C="5" H="6" id="RIBOSE_IN"/>
+		<pool C="6" H="7" id="GLC_IN"/>
+		<pool C="6" H="7" id="GLYCOGEN_IN1"/>
+		<pool C="6" H="7" id="GLYCOGEN_IN2"/>
+		<pool C="6" H="7" id="g6p"/>
+		<pool C="6" H="7" id="f6p"/>
+		<pool C="6" H="7" id="fbp"/>
+		<pool C="3" H="4" id="gap"/>
+		<pool C="3" H="4" id="dhap"/>
+		<pool C="3" H="3" id="bpg13"/>
+		<pool C="3" H="3" id="pg3"/>
+		<pool C="3" H="3" id="bpg23"/>
+		<pool C="3" H="3" id="pg2"/>
+		<pool C="3" H="2" id="pep"/>
+		<pool C="3" H="3" id="pyr"/>
+		<pool C="6" H="6" id="pg6"/>
+		<pool C="6" H="6" id="ddg6p"/>
+		<pool C="5" H="6" id="ru5p"/>
+		<pool C="5" H="6" id="r5p"/>
+		<pool C="5" H="6" id="xu5p"/>
+		<pool C="7" H="8" id="s7p"/>
+		<pool C="7" H="8" id="sbp"/>
+		<pool C="4" H="5" id="e4p"/>
+		<pool C="1" H="0" id="CO2"/>
+		<pool C="0" H="1" id="H"/>
+		<pool C="0" H="1" id="NADPH"/>
+		<pool C="0" H="1" id="NADH"/>
+	</metabolitepools>
+	<reaction id="CO2_IN">
+		<reduct cfg="A" id="CO2_IN"/>
+		<rproduct cfg="A" id="CO2"/>
+	</reaction>
+	<reaction id="H_IN">
+		<reduct cfg="A" id="H_IN"/>
+		<rproduct cfg="A" id="H"/>
+	</reaction>
+	<reaction id="NADPH_IN">
+		<reduct cfg="A" id="NADPH_IN"/>
+		<rproduct cfg="A" id="NADPH"/>
+	</reaction>
+	<reaction id="NADH_IN">
+		<reduct cfg="A" id="NADH_IN"/>
+		<rproduct cfg="A" id="NADH"/>
+	</reaction>
+	<reaction id="PYR_IN">
+		<reduct cfg="ABCabc" id="PYR_IN"/>
+		<rproduct cfg="ABCabc" id="pyr"/>
+	</reaction>
+	<reaction id="R5P_IN">
+		<reduct cfg="ABCDEabcdef" id="RIBOSE_IN"/>
+		<rproduct cfg="ABCDEabcdef" id="r5p"/>
+	</reaction>
+	<reaction id="GLC_IN">
+		<reduct cfg="ABCDEFabcdefg" id="GLC_IN"/>
+		<rproduct cfg="ABCDEFabcdefg" id="g6p"/>
+	</reaction>
+	<reaction id="GLYCOGEN_IN1">
+		<reduct cfg="ABCDEFabcdefg" id="GLYCOGEN_IN1"/>
+		<rproduct cfg="ABCDEFabcdefg" id="g6p"/>
+	</reaction>
+	<reaction id="GLYCOGEN_IN2">
+		<reduct cfg="ABCDEFabcdefg" id="GLYCOGEN_IN2"/>
+		<rproduct cfg="ABCDEFabcdefg" id="g6p"/>
+	</reaction>
+	<reaction id="PGI" leak="b">
+		<reduct cfg="ABCDEFabcdefg" id="g6p"/>
+		<rproduct cfg="ABCDEFbacdefg" id="f6p"/>
+	</reaction>
+	<reaction id="PFK">
+		<reduct cfg="ABCDEFbacdefg" id="f6p"/>
+		<rproduct cfg="ABCDEFbacdefg" id="fbp"/>
+	</reaction>
+	<reaction id="FBA">
+		<reduct cfg="ABCDEFbacdefg" id="fbp"/>
+		<reduct cfg="h" id="H"/>
+		<rproduct cfg="CBAhcab" id="dhap"/>
+		<rproduct cfg="DEFdefg" id="gap"/>
+	</reaction>
+	<reaction id="TPI">
+		<reduct cfg="ABChcab" id="dhap"/>
+		<reduct cfg="i" id="H"/>
+		<rproduct cfg="ABChiab" id="gap"/>
+		<rproduct cfg="c" id="H"/>
+	</reaction>
+	<reaction id="GAPD">
+		<reduct cfg="ABChiab" id="gap"/>
+		<rproduct cfg="ABCiab" id="bpg13"/>
+		<rproduct cfg="h" id="NADH"/>
+	</reaction>
+	<reaction id="PGK">
+		<reduct cfg="ABCiab" id="bpg13"/>
+		<rproduct cfg="ABCiab" id="pg3"/>
+	</reaction>
+	<reaction id="PGM1">
+		<reduct cfg="ABCiab" id="pg3"/>
+		<rproduct cfg="ABCiab" id="bpg23"/>
+	</reaction>
+	<reaction id="PGM2">
+		<reduct cfg="ABCiab" id="bpg23"/>
+		<rproduct cfg="ABCiab" id="pg2"/>
+	</reaction>
+	<reaction id="ENO">
+		<reduct cfg="ABCiab" id="pg2"/>
+		<rproduct cfg="ABCab" id="pep"/>
+		<rproduct cfg="i" id="H"/>
+	</reaction>
+	<reaction id="PYK" equiv="abh">
+		<reduct cfg="ABCab" id="pep"/>
+		<reduct cfg="h" id="H"/>
+		<rproduct cfg="ABCabh" id="pyr"/>
+	</reaction>
+	<reaction id="G6PDH">
+		<reduct cfg="ABCDEFabcdefg" id="g6p"/>
+		<rproduct cfg="ABCDEFbcdefg" id="pg6"/>
+		<rproduct cfg="a" id="NADPH"/>
+	</reaction>
+	<reaction id="EDD">
+		<reduct cfg="ABCDEFbcdefg" id="pg6"/>
+		<reduct cfg="h" id="H"/>
+		<rproduct cfg="ABCDEFhcdefg" id="ddg6p"/>
+		<rproduct cfg="b" id="H"/>
+	</reaction>
+	<reaction id="EDA" equiv="ihc">
+		<reduct cfg="ABCDEFhcdefg" id="ddg6p"/>
+		<reduct cfg="i" id="H"/>
+		<rproduct cfg="ABCihc" id="pyr"/>
+		<rproduct cfg="DEFdefg" id="gap"/>
+	</reaction>
+	<reaction id="GND">
+		<reduct cfg="ABCDEFbcdefg" id="pg6"/>
+		<reduct cfg="h" id="H"/>
+		<rproduct cfg="BCDEFhbdefg" id="ru5p"/>
+		<rproduct cfg="A" id="CO2"/>
+		<rproduct cfg="c" id="NADPH"/>
+	</reaction>
+	<reaction id="RPI" leak="h">
+		<reduct cfg="ABCDEhbdefg" id="ru5p"/>
+		<rproduct cfg="ABCDEbhdefg" id="r5p"/>
+	</reaction>
+	<reaction id="RPE">
+		<reduct cfg="ABCDEhbdefg" id="ru5p"/>
+		<reduct cfg="a" id="H"/>
+		<rproduct cfg="ABCDEhbaefg" id="xu5p"/>
+		<rproduct cfg="d" id="H"/>
+	</reaction>
+	<reaction id="TKT2">
+		<reduct cfg="ABCDEfghijk" id="xu5p"/>
+		<reduct cfg="abcdFGHIJ" id="e4p"/>
+		<rproduct cfg="CDEhijk" id="gap"/>
+		<rproduct cfg="ABabcdfgFGHIJ" id="f6p"/>
+	</reaction>
+	<reaction id="TKT1">
+		<reduct cfg="ABCDEfghijk" id="xu5p"/>
+		<reduct cfg="abcdeFGHIJK" id="r5p"/>
+		<rproduct cfg="ABabcdefgFGHIJK" id="s7p"/>
+		<rproduct cfg="CDEhijk" id="gap"/>
+	</reaction>
+	<reaction id="TAL">
+		<reduct cfg="ABChijk" id="gap"/>
+		<reduct cfg="abcdefgDEFGHIJK" id="s7p"/>
+		<rproduct cfg="defgGHIJK" id="e4p"/>
+		<rproduct cfg="abcABCDEFhijk" id="f6p"/>
+	</reaction>
+	<reaction id="SBA">
+		<reduct cfg="CBAhcab" id="dhap"/>
+		<reduct cfg="DEFGdefgi" id="e4p"/>
+		<rproduct cfg="ABCDEFGbacdefgi" id="sbp"/>
+		<rproduct cfg="h" id="H"/>
+	</reaction>
+	<reaction id="SBPASE">
+		<reduct cfg="ABCDEFGbacdefgi" id="sbp"/>
+		<rproduct cfg="ABCDEFGbacdefgi" id="s7p"/>
+	</reaction>
+	<reaction id="CO2_EX">
+		<reduct cfg="A" id="CO2"/>
+	</reaction>
+	<reaction id="H_EX">
+		<reduct cfg="A" id="H"/>
+	</reaction>
+	<reaction id="NADPH_EX">
+		<reduct cfg="A" id="NADPH"/>
+	</reaction>
+	<reaction id="NADH_EX">
+		<reduct cfg="A" id="NADH"/>
+	</reaction>
+	<reaction id="G6P_EX">
+		<reduct cfg="ABCDEFabcdefg" id="g6p"/>
+	</reaction>
+	<reaction id="F6P_EX">
+		<reduct cfg="ABCDEFabcdefg" id="f6p"/>
+	</reaction>
+	<reaction id="DHAP_EX">
+		<reduct cfg="ABCabcd" id="dhap"/>
+	</reaction>
+	<reaction id="R5P_EX">
+		<reduct cfg="abcdeFGHIJK" id="r5p"/>
+	</reaction>
+	<reaction id="E4P_EX">
+		<reduct cfg="DEFGdefgi" id="e4p"/>
+	</reaction>
+	<reaction id="PG3_EX">
+		<reduct cfg="ABCabc" id="pg3"/>
+	</reaction>
+	<reaction id="PEP_EX">
+		<reduct cfg="ABCab" id="pep"/>
+	</reaction>
+	<reaction id="PYR_EX">
+		<reduct cfg="ABCabc" id="pyr"/>
+	</reaction>
+</reactionnetwork>
+</fluxml>
