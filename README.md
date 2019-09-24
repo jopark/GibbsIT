@@ -3,11 +3,15 @@ Gibbs energy from isotope tracing
 
 Code used in:
 
-Spare glycolytic capacity supports metabolic homeostasis and energy efficiency.
+Near-equilibrium glycolysis supports metabolic homeostasis and energy yield.
 
-Junyoung O. Park, Lukas B. Tanner, Monica H. Wei, Daven Khana, Tyler Jacobson, Zheyun Zhang, Sara A. Rubin, Sophia Hsin-Jung Li, Meytal B. Higgins, David M. Stevenson, Daniel Amador-Noguez, and Joshua D. Rabinowitz
+Junyoung O. Park, Lukas B. Tanner, Monica H. Wei, Daven B. Khana, Tyler B. Jacobson, Zheyun Zhang, Sara A. Rubin, Sophia Hsin-Jung Li, Meytal B. Higgins, David M. Stevenson, Daniel Amador-Noguez, and Joshua D. Rabinowitz
 
-Princeton University, University of Wisconsin - Madison, UCLA
+University of California, Los Angeles, Princeton University, University of Wisconsin - Madison
+
+Nature Chemical Biology (2019)
+
+https://doi.org/10.1038/s41589-019-0364-9
 
 In each organism folder,
 - *_mea.xlsx contains measured labeling fractions and net/exchange flux constraints that went into the model as input
